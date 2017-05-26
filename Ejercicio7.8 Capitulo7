@@ -1,0 +1,76 @@
+   static final int N = 5; 
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int[] horas = new int[N];
+        int[] horasextra = new int[N];
+        
+        ingrese(horas);
+        horasE(horas, horasextra);
+        pagohoras(horas, horasextra);
+        
+        
+    }
+    
+    public static void ingrese(int[] horas){
+        Scanner s = new Scanner(System.in);
+        int i=0;
+        
+        for(i=0; i<N; i++){
+            System.out.println("Ingrese la cantidad de horas trabajadas por el trabajador "+(i+1));
+            horas[i] = s.nextInt();
+        }
+    }
+    
+    public static void horasE(int[] horas, int[] horasextra){
+        Scanner s = new Scanner(System.in);
+        
+        int i = 0;
+        int mayores = 0;
+       
+        for(i=0; i<N; i++){
+            if(horas[i]>160){
+                mayores = horas[i]-160;
+                
+                if(mayores>0 && mayores<4){
+                    horasextra[i] = mayores*2000;
+                }if(mayores>3 && mayores<8){
+                    horasextra[i] = mayores*3000;
+                }if(mayores>7){
+                    horasextra[i] = mayores*3500;
+                }
+                   
+            }else if(horas[i]<=160){
+                horasextra[i] = 0;
+            } 
+            
+        }
+        
+    }
+    
+    public static void pagohoras(int[] horas, int[] horasextra){
+        Scanner s = new Scanner(System.in);
+        
+       int i=0;
+       int SalarioTotal=0;
+       int mayores = 0;
+       int horaOrdi = 0;
+       
+       for(i=0; i<N; i++){
+           if(horas[i]>160){
+                horaOrdi = 160*5000;
+                
+                
+                
+            }if(horas[i]<160){
+                horaOrdi = horas[i]*5000;
+            }
+            SalarioTotal = horaOrdi+horasextra[i];
+            
+            System.out.println("El salario del empleado "+(i+1)+ " es: "+SalarioTotal);
+       }
+        
+    }
+    
+    
+}
+

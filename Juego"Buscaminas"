@@ -1,0 +1,56 @@
+   public static void main(String[] args) {
+    Scanner s = new Scanner(System.in);
+    
+    int x=10, y=10;
+    int [][] buscaminas = new int [x][y];
+    int i, j, ejex, ejey, cont=0;
+    
+    
+
+         
+   
+    
+    for (i=0; i<1; i++){
+         ejex = (int)(Math.random()*10);
+         ejey = (int)(Math.random()*10);
+     
+        buscaminas[ejex][ejey]=1;
+    }
+        
+    for(i=0; i<10; i++){
+        System.out.print("");
+        for(j=0; j<10; j++){
+            System.out.print(buscaminas[i][j]+"   ");
+    }
+        System.out.println("");
+    }
+         
+
+     do{
+         do{
+             System.out.println("Ingrese la fila");
+             x = s.nextInt();
+         }while(x<0 || x>10);
+         do{
+             System.out.println("Ingrese la columna");
+             y = s.nextInt();
+         }while(y<0 || y>10);
+         
+         if(buscaminas[x][y]==1){
+             System.out.println("Felicidades gano");
+             cont++;
+         }else
+             System.out.println("Siga intentando");
+                 
+         
+     }while(cont!=1);
+
+
+    
+
+         
+
+    
+    }
+    
+}

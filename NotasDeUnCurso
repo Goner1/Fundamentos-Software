@@ -1,0 +1,160 @@
+   public static void main(String[] args) {
+    Scanner s = new Scanner(System.in);
+    
+    
+    int notas, alumnos;
+    int j = 0, i=0;
+    float prom=0, prom2=0, suma = 0, sumanotas=0;
+    float max = 0, min = 0,min2 = 0, max2 = 0, azules;
+    
+    
+    
+        System.out.println("Ingrese la cantidadd de alumnos");
+        alumnos = s.nextInt();
+        
+        System.out.println("Ingrese la cantidad de notas");
+        notas = s.nextInt();
+        
+    float[][] TodasNotas = new float[alumnos+3][notas+3];
+    
+    for(i=0; i<alumnos; i++){
+        for(j=0; j<notas; j++){
+            System.out.println("Ingrese la nota "+(j+1)+" del alumno "+(i+1));
+            TodasNotas[i][j] = s.nextInt();
+            
+        }
+    }
+    
+        System.out.println("==========================================");
+    
+    for(i=0; i<alumnos; i++){
+        System.out.println("Las notas del alumno "+(i+1));
+        for(j=0; j<notas; j++){
+            System.out.print(TodasNotas[i][j]+" ");
+        }
+        System.out.println("");
+    }
+    
+    
+    for(i=0; i<alumnos; i++){
+        suma= 0;
+        max = TodasNotas[i][0];
+        min = TodasNotas[i][0];
+        for(j=0; j<notas; j++){
+         suma = suma + TodasNotas[i][j];   
+         
+         if(max < TodasNotas[i][j]){
+             max = TodasNotas[i][j];
+         }if(min > TodasNotas[i][j]){
+             min = TodasNotas[i][j];
+         }
+        }
+        
+        prom = suma / notas;
+        
+        TodasNotas[i][notas] = prom;
+        TodasNotas[i][notas + 1] = max;
+        TodasNotas[i][notas + 2] = min;
+        
+        System.out.println("El promedio del alumno "+(i+1)+" es: "+prom);
+        System.out.println("Sus notas minimas y maximas son: "+min+"-"+max);
+    }
+    
+    for(i=0; i<alumnos; i++){
+        for(j=0; j<notas; j++){
+            if(TodasNotas[i][j]<4 ){
+            azules = TodasNotas[i][j];   
+            }
+        }
+        System.out.println("Las notas azules son del alumno "+(i+1)+" son: ");
+    }
+    
+        for (i = 0; i < notas; i++){
+
+            max2 = TodasNotas[0][i];
+            min2 = TodasNotas[0][i];
+            for (j = 0; j < alumnos; j++){
+
+                suma += TodasNotas[j][i];
+
+                if (TodasNotas[j][i] >max2) {
+                    max2 = TodasNotas[j][i];
+
+                }
+
+                if (TodasNotas[j][i] < min2) {
+                    min2 = TodasNotas[j][i];
+                }
+
+            }
+            prom2 = suma / alumnos;
+            TodasNotas[alumnos][i] = prom2;
+            TodasNotas[alumnos + 1][i] = max2;
+            TodasNotas[alumnos + 2][i] = min2;
+            suma = 0;
+        }
+
+       
+    
+    
+        
+    
+    
+    
+    
+        System.out.println("==========================================");
+    
+
+
+
+
+            for(j=0; j<notas; j++){
+            System.out.print("\t Nota "+(j+1));
+            
+            }
+            System.out.println("\tPromedio"+" Max\tMin");
+
+           for ( i = 0; i < alumnos; i++) {
+
+            System.out.print("\nAlumno " + (i + 1) + " | ");
+            
+
+            for (j = 0; j < notas+3; j++) {
+
+                System.out.print(TodasNotas[i][j]+"\t  " );
+                
+            }
+           }
+            
+           
+            System.out.print("\nPromedio | ");
+        for (i = 0; i < (notas); i++) {
+            System.out.print(TodasNotas[alumnos][i] + "\t"+"  ");
+        }
+
+        System.out.print("\nMin      | ");
+        for (i = 0; i < (notas); i++) {
+
+            System.out.print(TodasNotas[alumnos + 2][i] + "\t"+"  ");
+        }
+
+        System.out.print("\nMax      | ");
+        for (i = 0; i < (notas); i++) {
+
+            System.out.print(TodasNotas[alumnos + 1][i] + "\t"+"  ");
+        }  
+
+            
+         
+                    
+            
+        }
+            
+    
+    
+    
+    }
+    
+    
+
+

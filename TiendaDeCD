@@ -1,0 +1,62 @@
+    static final int V=30;
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int[] Ventas = new int[V];
+        ingresar(Ventas);
+        System.out.println("El promedio de los 5 primeros dias es: "+promedio(Ventas));
+        
+        ventasmayor(Ventas);
+        System.out.println("El dia N°"+mayorventa(Ventas)+" fue el de mayor venta");
+        
+    }
+    
+    public static void ingresar(int[] ventas){
+    Scanner s = new Scanner(System.in);    
+    int i=0;
+    
+     for(i=0; i<V; i++){
+         System.out.println("Ingrese las ventas del dia "+(i+1)+" :");
+         ventas[i] = s.nextInt();
+     }
+    
+    }
+    
+    public static float promedio(int[] ventas){
+       int i=0;
+       float suma=0;
+        
+       for(i=0; i<5; i++){
+           suma = suma + ventas[i];
+           
+           
+       }
+       
+        return (float) suma/15;
+    }
+    
+    public static void ventasmayor(int[] ventas){
+        int i=0;
+        int ventasmayor=0;
+        System.out.println("Los dias con ventas mayores a 345.000 son los siguentes: ");
+        for(i=0; i<V; i++){
+            if(ventas[i]>345000){
+                System.out.println("Dia "+(i+1));
+            }
+        }
+    }
+    
+    public static int mayorventa(int[] ventas){
+        int i=0;
+        int mayor =0, dia=0;
+        
+        
+        for(i=0; i<V; i++){
+            if(mayor<ventas[i]){
+                mayor = ventas[i];
+                dia = i;
+            }
+        }
+        return dia+1;
+    }
+    
+}

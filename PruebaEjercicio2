@@ -1,0 +1,98 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication45;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author omar
+ */
+public class JavaApplication45 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner intro = new Scanner(System.in);
+
+        String palabra = "";
+        System.out.println("ingrese la palabra");
+        palabra = intro.nextLine();
+
+        menu(0, palabra);
+
+    }
+
+    public static void menu(int opcion, String palabra) {
+        Scanner s = new Scanner(System.in);
+        int opc = 0;
+
+        System.out.println("=================================================");
+        do {
+            System.out.println("Menu.");
+            System.out.println("1- Cantidad de vocales en el texto ingresado. ");
+            System.out.println("2- Determinar si el texto ingresado es un palindromo. ");
+            System.out.println("3- Invertir el texto que se a ingresado. ");
+            System.out.println("4- Salir.");
+            opc = s.nextInt();
+            switch (opc) {
+                case 1:
+                    contador(palabra);
+                    break;
+                case 2:
+                    palindromo(palabra);
+                    break;
+                case 3:
+                    invertir(palabra);
+                    break;
+            }
+        } while (opc != 4);
+
+    }
+
+    public static void contador(String palabra) {
+        int cont = 0;
+        String vocales = "aeiou";
+
+        for (int i = 0; i < vocales.length(); i++) {
+            for (int j = 0; j < palabra.length(); j++) {
+                if (vocales.charAt(i) == palabra.charAt(j)) {
+                    cont++;
+                }
+            }
+        }
+        System.out.println("Las palabra ingresadas contienen " + cont + " vocales");
+        System.out.println("=================================================");
+    }
+
+    public static void invertir(String palabra) {
+        String invertir = "";
+
+        for (int i = palabra.length() - 1; i >= 0; i--) {
+            invertir = invertir + palabra.charAt(i);
+
+        }
+        System.out.println(invertir);
+        System.out.println("=================================================");
+
+    }
+
+    public static void palindromo(String palabra) {
+
+        StringBuffer palabra2 = new StringBuffer(palabra);
+        palabra2 = palabra2.reverse();
+
+        if (palabra.contentEquals(palabra2)) {
+            System.out.println(palabra + " Es un palíndromo");
+        } else {
+            System.out.println(palabra + " No es un palíndromo");
+        }
+        System.out.println("=================================================");
+    }
+
+}

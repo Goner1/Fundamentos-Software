@@ -1,0 +1,136 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pruebaejercicio3;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author omar
+ */
+public class PruebaEjercicio3 {
+
+    /**
+     * @param args the command line arguments
+     */
+    final static int N = 5;
+    final static int M = 5;
+
+    public static void main(String[] args) {
+
+        menu();
+    }
+
+    public static void menu() {
+        Scanner s = new Scanner(System.in);
+        int opc = 0;
+
+        System.out.println("====================================");
+        do {
+            System.out.println("Menu.");
+            System.out.println("1- Escalera.");
+            System.out.println("2- Cuadrado vacio por dentro. ");
+            System.out.println("3- Letra z");
+            System.out.println("4- Cuadrado Relleno completo");
+            System.out.println("5- Salir.");
+            opc = s.nextInt();
+
+            switch (opc) {
+                case 1:
+                    escalera();
+                    break;
+                case 2:
+                    CuadradoVacio();
+                    break;
+                case 3:
+                    LetraZ();
+                    break;
+                case 4:
+                    CuadradoRelleno();
+            }
+        } while (opc != 5);
+    }
+
+    public static void escalera() {
+        int i = 0, j = 0;
+        int cont = M - 1, cont2 = 0;
+
+        System.out.println("Escalera ");
+        System.out.println("--------\n");
+
+        for (int numasteriscos = 1; numasteriscos <= M; numasteriscos++) {
+
+            for (i = 0; i < numasteriscos; i++) {
+                System.out.print("#  ");
+            }
+
+            System.out.println("");
+        }
+        System.out.println("====================================");
+
+    }
+
+    public static void CuadradoVacio() {
+        int i = 0, j = 0;
+
+        System.out.println("Cuadrado Vacio");
+        System.out.println("--------------\n");
+
+        for (i = 1; i <= N; i++) {
+            for (j = 1; j <= M; j++) {
+                if (j == 1 || j == N || i == N || i == 1) {
+                    System.out.print("# ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println("");
+        }
+        System.out.println("====================================");
+    }
+
+    public static void LetraZ() {
+        int i = 0, j = 0;
+        int cont = M;
+        int diferencia = 0;
+
+        System.out.println("Letra Z");
+        System.out.println("-------\n");
+        for (i = 1; i <= N; i++) {
+            cont--;
+            for (j = 1; j <= M; j++) {
+                
+                diferencia = j - 1;
+                if (i == 1 || i == N  ) {
+                    System.out.print("# ");
+
+                } else {
+                    System.out.print("  ");
+                }
+
+            }
+            System.out.print("\n");
+        }
+        System.out.println("====================================");
+
+    }
+
+    public static void CuadradoRelleno() {
+        int i = 0, j = 0;
+
+        System.out.println("Cuadrado");
+        System.out.println("--------\n");
+
+        for (i = 0; i < N; i++) {
+            for (j = 0; j < M; j++) {
+                System.out.print(" # ");
+            }
+            System.out.print("\n");
+        }
+        System.out.println("====================================");
+    }
+
+}
